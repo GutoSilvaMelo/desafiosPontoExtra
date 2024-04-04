@@ -11,18 +11,20 @@ class HelloWorld {
         int contador = 0;
         int contadorDois = 0;
 
+        String texto = "";
         for (int i = 0; i <= numeroInicial; i++) {
-            JOptionPane.showMessageDialog(null, "for: " + i);
+            texto += "for: " + i + "\n";
         }
 
         while(contador <= numeroInicial) {
-        JOptionPane.showMessageDialog(null,"while: " + contador);
-        contador++;
+            texto += "while: " + contador + "\n";
+            contador++;
         }
 
         do {
-            JOptionPane.showMessageDialog(null, "do-while: " + contadorDois);
+            texto += "do-while: " + contadorDois + "\n";
             contadorDois++;
         } while (contadorDois <= numeroInicial);
+        JOptionPane.showMessageDialog(null, texto);
     }
 }

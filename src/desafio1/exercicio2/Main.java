@@ -3,9 +3,8 @@ package desafio1.exercicio2;
 import javax.swing.*;
 class HelloWorld {
     public static void main(String[] args) {
-        int numeroInicial;
         String numero = JOptionPane.showInputDialog(null, "Digite um número entre 1 e 7");
-        numeroInicial = Integer.parseInt(numero);
+        int numeroInicial = Integer.parseInt(numero);
 
         switch (numeroInicial) {
             case (DiasDaSemana.DOMINGO):
