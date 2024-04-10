@@ -5,33 +5,28 @@ import java.util.HashSet;
 class HelloWorld {
     public static void main(String[] args) {
         HashSet<String> tarefas = new HashSet<>();
-        boolean sair = false;
         JOptionPane.showMessageDialog(null, "Bem-vindo à Lista de Tarefas!");
+        Tarefa tarefa = new Tarefa();
+        boolean sair = false;
 
         while (!sair) {
-            String[] options = {"Adicionar tarefa", "Visualizar tarefas", "Remover tarefa", "Sair" };
-            int escolhaDasOpcoesDoMenu = JOptionPane.showOptionDialog(null, "Menu:", "Gerenciador de tarefas",JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,null, options, options[0]);
+            int escolhaDasOpcoesDoMenu = Integer.parseInt(JOptionPane.showInputDialog(null, """
+                    Menu:\s
+                    1. Adicionar tarefa
+                    2. Visualizar tarefas
+                    3.Remover tarefa
+                    4.Sair"""));
 
-            if (tarefas.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Sua lista está vazia!");
-                JOptionPane.showMessageDialog(null, "Retornando ao menu...");
-
-
-            } else if (escolhaDasOpcoesDoMenu == Escolha.visualizar) {
+            if (escolhaDasOpcoesDoMenu == Options.ADICIONAR) {
+                tarefa.adicionar(tarefas);
             }
-
-            else if {
-                String listaDeTarefas="";
-                for (int t = 0; t < tarefas.size(); t++) {
-                    listaDeTarefas = listaDeTarefas + (t+1) + ". " + tarefas.contains(t) + "\n";
-
-                }
-                JOptionPane.showMessageDialog(null,listaDeTarefas);
-
-                JOptionPane.showMessageDialog(null, "Retornando ao menu...");
-
+            else if (escolhaDasOpcoesDoMenu == Options.VISUALIZAR) {
+                tarefa.visualizar(tarefas);
             }
-             else (escolhaDasOpcoesDoMenu){
+            else if (escolhaDasOpcoesDoMenu == Options.REMOVER) {
+                tarefa.remover(tarefas);
+            }
+            else {
                 JOptionPane.showMessageDialog(null, "Até mais...");
                 sair = true;
             }
